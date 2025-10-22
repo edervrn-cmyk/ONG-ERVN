@@ -516,3 +516,28 @@ form input:valid:not(:placeholder-shown) {
     .main-nav ul li { margin: var(--espaco-s) 0; }
     .hamburger { display: block; }
 }
+
+/* Adicionar ao final de css/style.css */
+
+/* Estilos para Validação de Formulário */
+.error-message {
+    color: var(--cor-perigo);
+    font-size: var(--tamanho-fonte-small);
+    margin-top: 4px;
+    display: block;
+    min-height: 1.2em; /* Evita que o layout "pule" */
+}
+
+input.invalid {
+    border-color: var(--cor-perigo);
+}
+
+.alert-perigo {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: var(--espaco-s);
+    margin-bottom: var(--espaco-m);
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
