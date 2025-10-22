@@ -9,38 +9,62 @@
 </head>
 <body>
 
-    <header class="main-header">
-        <h1>ONG EVRN (Eder Vitor Reis Nogueira)</h1>
-        <nav>
+<header class="main-header">
+    <div class="container">
+        <h1>ONG EVRN</h1>
+        <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
+                <li class="dropdown">
+                    <a href="projetos.html">Projetos</a>
+                    <div class="dropdown-content">
+                        <a href="#">EducAção</a>
+                        <a href="#">Mão na Massa</a>
+                    </div>
+                </li>
                 <li><a href="cadastro.html">Participe</a></li>
             </ul>
         </nav>
-    </header>
+        <button class="hamburger" id="hamburger-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </div>
+</header>
 
-    <main>
-        <section id="sobre">
-            <h2>Sobre Nossa Organização</h2>
-            <article>
-                <h3>Nossa Missão, Visão e Valores</h3>
-                <img src="https://via.placeholder.com/800x300" alt="Crianças sorrindo em uma de nossas ações">
-                <p>Nossa missão é promover o desenvolvimento social e educacional em comunidades carentes, oferecendo oportunidades que transformam vidas. Acreditamos em um futuro onde todos têm o direito a uma vida digna e com esperança.</p>
-                <p><strong>Visão:</strong> Ser uma organização de referência no combate à desigualdade social.</p>
-                <p><strong>Valores:</strong> Empatia, Transparência, Comprometimento e Respeito.</p>
-            </article>
-        </section>
-
-        <section id="contato">
-            <h2>Informações de Contato</h2>
-            <p>Entre em contato conosco para saber mais sobre nosso trabalho ou para parcerias.</p>
-            <ul>
-                <li><strong>Email:</strong> contato@ongevrn.org</li>
-                <li><strong>Telefone:</strong> (11) 99999-8888</li>
-                <li><strong>Endereço:</strong> Rua Um, 123, Luminarias - MG</li>
-            </ul>
-        </section>
+<main class="container">
+    <div id="feedback-area">
+        </div>
+    <section id="sobre">
+        <h2>Sobre Nossa Organização</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <article>
+                    <h3>Missão</h3>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+                    </article>
+            </div>
+            <div class="col-md-8">
+                <article>
+                    <h3>Visão</h3>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+                    </article>
+            </div>
+            <div class="col-md-8">
+                <article>
+                    <h3>Valores</h3>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+                    </article>
+            </div>
+            <br><br><br>
+           
+        </div> 
+            <div class="col-md-4">
+                <p> ...</p>
+                <img src="https://i0.wp.com/abong.org.br/wp-content/uploads/2023/08/pessoas-de-cadeia-de-origami-vista-superior-com-globo-scaled.jpg?resize=2048%2C2048&ssl=1" alt="Voluntários da ONG">
+            </div>
+    </section>
     </main>
 
     <footer class="main-footer">

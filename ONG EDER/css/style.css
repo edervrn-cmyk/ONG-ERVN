@@ -131,3 +131,388 @@ legend {
         padding: 1rem 5%;
     }
 }
+
+/*=============================================
+  1. SISTEMA DE DESIGN (DESIGN SYSTEM)
+===============================================*/
+:root {
+    /* 1.1 Paleta de Cores (8 cores) */
+    --cor-primaria: #0275d8;
+    --cor-primaria-dark: #025aa5;
+    --cor-secundaria: #5cb85c;
+    --cor-sucesso: #5cb85c;
+    --cor-alerta: #f0ad4e;
+    --cor-perigo: #d9534f;
+    --cor-neutra-dark: #333;
+    --cor-neutra-light: #f4f4f4;
+    --cor-texto: #333;
+    --cor-branca: #fff;
+
+    /* 1.2 Tipografia Hierárquica (5 tamanhos) */
+    --fonte-familia: 'Arial', sans-serif;
+    --tamanho-fonte-base: 16px; /* p */
+    --tamanho-fonte-h1: 2.5rem;   /* 40px */
+    --tamanho-fonte-h2: 2rem;     /* 32px */
+    --tamanho-fonte-h3: 1.5rem;   /* 24px */
+    --tamanho-fonte-small: 0.875rem;/* 14px */
+
+    /* 1.3 Sistema de Espaçamento Modular */
+    --espaco-xs: 8px;
+    --espaco-s: 16px;
+    --espaco-m: 24px;
+    --espaco-l: 32px;
+    --espaco-xl: 48px;
+    --espaco-xxl: 64px;
+}
+
+/*=============================================
+  2. RESET BÁSICO E ESTILOS GERAIS
+===============================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-familia);
+    font-size: var(--tamanho-fonte-base);
+    line-height: 1.6;
+    background-color: var(--cor-neutra-light);
+    color: var(--cor-texto);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+}
+
+h1, h2, h3 {
+    color: var(--cor-primaria);
+    margin-bottom: var(--espaco-m);
+}
+h1 { font-size: var(--tamanho-fonte-h1); }
+h2 { font-size: var(--tamanho-fonte-h2); }
+h3 { font-size: var(--tamanho-fonte-h3); }
+
+/*=============================================
+  3. LEIAUTE PRINCIPAL (CSS GRID)
+===============================================*/
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.main-header { grid-area: header; }
+main { grid-area: main; }
+.main-footer { grid-area: footer; }
+
+/*=============================================
+  4. SISTEMA DE GRID CUSTOMIZADO (12 COLUNAS)
+===============================================*/
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+[class*="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+/*=============================================
+  5. NAVEGAÇÃO SOFISTICADA
+===============================================*/
+.main-header {
+    background: var(--cor-neutra-dark);
+    color: var(--cor-branca);
+    padding: var(--espaco-s) 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--cor-branca);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: var(--espaco-m);
+    position: relative; /* Para o dropdown */
+}
+
+.main-nav a {
+    color: var(--cor-branca);
+    text-decoration: none;
+    padding: var(--espaco-xs) var(--espaco-s);
+    transition: background-color 0.3s;
+}
+
+.main-nav a:hover {
+    background-color: var(--cor-primaria);
+    border-radius: 4px;
+}
+
+/* Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--cor-neutra-dark);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: var(--cor-branca);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Menu Hambúrguer */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--cor-branca);
+    transition: all 0.3s ease-in-out;
+}
+
+/*=============================================
+  6. COMPONENTES DE INTERFACE
+===============================================*/
+
+/* Botões com Estados */
+.button {
+    display: inline-block;
+    background: var(--cor-primaria);
+    color: var(--cor-branca);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.button:hover {
+    background: var(--cor-primaria-dark);
+    transform: translateY(-2px);
+}
+.button:focus {
+    outline: 2px solid var(--cor-primaria-dark);
+    outline-offset: 2px;
+}
+.button:active {
+    transform: translateY(0);
+}
+.button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Cards Responsivos */
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espaco-l);
+}
+
+.card {
+    background: var(--cor-branca);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.card-content {
+    padding: var(--espaco-m);
+}
+.card-content h3 {
+    margin-top: 0;
+}
+
+/* Formulários Estilizados com Validação Visual */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-s);
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: var(--espaco-m);
+    border-radius: 5px;
+}
+
+legend {
+    color: var(--cor-primaria);
+    font-weight: bold;
+    padding: 0 var(--espaco-xs);
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 5px rgba(2, 117, 216, 0.5);
+}
+
+/* Validação Visual */
+form input:invalid:not(:placeholder-shown) {
+    border-color: var(--cor-perigo);
+}
+form input:valid:not(:placeholder-shown) {
+    border-color: var(--cor-sucesso);
+}
+
+/* Badges e Tags */
+.badge {
+    display: inline-block;
+    padding: .25em .6em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    color: var(--cor-branca);
+}
+.badge-sucesso { background-color: var(--cor-sucesso); }
+.badge-alerta { background-color: var(--cor-alerta); }
+
+/* Alertas/Feedback */
+.alert {
+    padding: var(--espaco-s);
+    margin-bottom: var(--espaco-m);
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-sucesso {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: var(--espaco-l);
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+/*=============================================
+  7. BREAKPOINTS RESPONSIVOS
+===============================================*/
+
+/* Breakpoint 1: Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .col-sm-6 { width: 50%; }
+}
+
+/* Breakpoint 2: Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .main-nav { display: flex !important; }
+    .hamburger { display: none; }
+    .card-container { grid-template-columns: repeat(2, 1fr); }
+    .col-md-4 { width: 33.333%; }
+    .col-md-6 { width: 50%; }
+    .col-md-8 { width: 66.666%; }
+    .col-md-12 { width: 100%; }
+}
+
+/* Breakpoint 3: Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .card-container { grid-template-columns: repeat(3, 1fr); }
+    .col-lg-3 { width: 25%; }
+    .col-lg-4 { width: 33.333%; }
+    .col-lg-6 { width: 50%; }
+}
+
+/* Breakpoint 4: Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .col-xl-4 { width: 33.333%; }
+}
+
+/* Breakpoint 5: Mobile (max-width: 767px) - para o menu hambúrguer */
+@media (max-width: 767px) {
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: var(--cor-neutra-dark);
+    }
+    .main-nav.active { display: flex; }
+    .main-nav ul { flex-direction: column; width: 100%; }
+    .main-nav ul li { margin: var(--espaco-s) 0; }
+    .hamburger { display: block; }
+}
